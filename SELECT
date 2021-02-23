@@ -61,68 +61,37 @@ EX) WHERE 장소 LIKE '%상암%';
 < 정렬 검색 >
 SELECT [ALL | DISTINCT ] 속성1, 속성2,.. 
 FROM 테이블 
-[WHERE 조건];
-[ORDER BY 속성 [ASC | DESC]];
-
-              
-              
-              
-              ;
-              
-             
-
- 
-
-
-
-[ORDER BY 속성 [ASC | DESC];
- 
-
-
-                                                          
-                                                                                         
-
-
-
-
-
-
+[WHERE 조건]
+[ORDER BY 속성1 [ASC | DESC], 속성2 [ASC | DESC]];
 
 기준이 되는 속성 지정.
-ASC : 오름차순
-DESC : 내림차순                                                                                          
-                                                                                       
-                                                                                        ㅁㄴ
-                                                                                          
+ASC : 오름차순(디폴트)
+DESC : 내림차순 
 
-                                                                                          
+NULL 값은 오름차순일 때는 제일 먼저, 내림차순일 때는 제일 마지막에 정렬된다.
 
-
-
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
+※ 2개 이상의 기준으로 정렬
+EX) ORDER BY A ASC, B DESC; // A 기준으로 오름차순으로 정렬 후, A가 같은 경우 B의 내림차순으로 정렬.
 
 
 
-            
-            종이, 책, 밑에 문장들, 문제에서 나온거
 
 
 
-ORDER BY 속성 : 해당 속성의 오름차순으로 정렬.
-ORDER BY 속성 DESC : 해당 속성의 내림차순으로 정렬.
-
-비교연산자 <> 다르다 => 문자열, 정수 상관없이
-
-A로 정렬후 , 같은경우 B로 정렬 하기
-ORDER BY A ASC, B DESC; ( 디폴트 오름차순)
+---------------------------
+종이, 책, 문제에서 나온거 정리 후 확장자 .SQL로 바꾸기
 
 
-MySQL은 limit을 걸어 추출한다.
+< LIMIT 검색 >
+SELECT 속성
+FROM 테이블
+[WHERE 조건]
+LIMIT 개수;
 
-limit 3, 7 : 위에서 3부터 7까지의 정보 추출
-limit 5 : 위에서 5개의 정보 추출
+EX) LIMIT 2 : 위에서부터 2개만 출력.
+EX) LIMIT 2, 5 : 3번째 줄부터 5개(3 ~ 7) 
+
+        
+
 
 
