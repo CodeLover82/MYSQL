@@ -1,5 +1,6 @@
 < 기본 검색 >
-SELECT [ALL | DISTINCT] 속성1 [AS X], 속성2 [AS Y],.. from 테이블1;
+SELECT [ALL | DISTINCT] 속성1 [AS X], 속성2 [AS Y],.. 
+FROM 테이블1;
 
 * : 모든 속성의 의미로 속성1, 2.. 대신에 *를 사용할 수 있다.
 ALL : 튜플 중복 허용.(디폴트)
@@ -14,7 +15,9 @@ EX) SELECT 제품명, 단가 + 500 FROM 제품;
 
 
 < 조건 검색 >
-SELECT [ALL | DISTINCT ] 속성1, 속성2,.. from 테이블 [WHERE 조건];
+SELECT [ALL | DISTINCT ] 속성1, 속성2,.. 
+FROM 테이블 
+[WHERE 조건];
 
 조건의 위치에는 여러가지 종류가 들어갈 수 있다.
 
@@ -52,8 +55,54 @@ EX) WHERE 장소 LIKE '%상암%';
 이름 IS NOT NULL : NULL이 아닌지.
 
 
-            
 
+
+
+< 정렬 검색 >
+SELECT [ALL | DISTINCT ] 속성1, 속성2,.. 
+FROM 테이블 
+[WHERE 조건];
+[ORDER BY 속성 [ASC | DESC]];
+
+              
+              
+              
+              ;
+              
+             
+
+ 
+
+
+
+[ORDER BY 속성 [ASC | DESC];
+ 
+
+
+                                                          
+                                                                                         
+
+
+
+
+
+
+
+기준이 되는 속성 지정.
+ASC : 오름차순
+DESC : 내림차순                                                                                          
+                                                                                       
+                                                                                        ㅁㄴ
+                                                                                          
+
+                                                                                          
+
+
+
+                                                                                          
+                                                                                          
+                                                                                          
+                                                                                          
 
 
 
