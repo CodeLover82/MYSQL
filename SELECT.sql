@@ -8,7 +8,9 @@ DISTINCT : 튜플 중복 제거.
 AS : 별칭 부여. 속성의 이름을 다른 이름으로 바꾸어 출력한다.
 
 ※ 산술식을 이용한 검색
-EX) SELECT 제품명, 단가 + 500 FROM 제품;
+EX) 
+SELECT 제품명, 단가 + 500 
+FROM 제품;
 
 
 
@@ -73,6 +75,10 @@ NULL 값은 오름차순일 때는 제일 먼저, 내림차순일 때는 제일 
 ※ 2개 이상의 기준으로 정렬
 EX) ORDER BY A ASC, B DESC; // A 기준으로 오름차순으로 정렬 후, A가 같은 경우 B의 내림차순으로 정렬.
 
+
+
+
+
 < 집계 함수를 이용한 검색 >
 NULL인 속성은 제외하고 계산. 
 WHERE 절에서는 사용 불가. SELECT 절이나, GROUP BY 사용시 HAVING 절에서만 사용 가능.
@@ -86,7 +92,9 @@ MIN : 최솟값
 SUM : 합계(숫자만 가능)
 AVG : 평균(숫자만 가능)
 
-EX) SELECT AVG(단가) FROM 제품;
+EX) 
+SELECT AVG(단가) 
+FROM 제품;
 
 
 
@@ -105,11 +113,54 @@ GROUP BY를 사용할 때는 SELECT 절에 집계함수, GROUP BY 절에 있는 
 [ 처리 순서 ]
 FROM -> WHERE -> GROUP BY -> ORDER BY -> SELECT
 
-EX) SELECT COUNT(*), MAX(단가) FROM 제품 GROUP BY 제조업체 HAVING COUNT(*) >= 3;
+EX) 
+SELECT COUNT(*), MAX(단가) 
+FROM 제품 
+GROUP BY 제조업체 HAVING COUNT(*) >= 3;
+
+
+
+
 
 < 여러 테이블에 대한 조인 검색 >
+테이블을 연결해주는 조인속성이 필요.
+일반적으로 테이블의 관계를 나타내는 외래키를 조인속성으로 사용.
+
+FROM 절에 검색에 필요한 모든 테이블을 나열하고, WHERE 절에 조인 속성의 값이 같아야함을 제시한다.
+
+EX) 
+SELECT 제품, 제품명 
+FROM 제품, 주문 
+WHERE 주문.주문고객 = 'BANANA' AND 제품.제품번호 = 주문.주문제품;
 
 
+
+
+
+< 부속 질의문을 이용한 검색 >
+부속질의문은 괄호()로 묶어 작성하고, ORDER BY 사용 불가.
+
+IN : 결과 값 중 일치하는 겂이 있으면 참
+NOT IN : 결과 값 중 일치하는 것이 없으면 참
+ALL : 모두와 비교한 결과가 참이면 참
+ANY : 하나라도 비교한 결과가 참이면 참
+
+EX) 
+SELECT 제품명, 제조업체 
+FROM 제품 
+WHERE 제품번호 NOT IN (
+                SELECT 주문제품 
+                FROM 주문 
+                WHERE 주문고객 = 'BANANA');
+
+EX)
+SELECT 제품명, 제조업체
+FROM 제품
+WHERE 단가 > ALL (
+                SELECT 단가
+                FROM 제품
+                WHERE 제조업체 = '대한식품');
+   
 
 
 
@@ -122,8 +173,3 @@ LIMIT 개수;
 
 EX) LIMIT 2 : 위에서부터 2개만 출력.
 EX) LIMIT 2, 5 : 3번째 줄부터 5개(3 ~ 7) 
-
-        
-
-
-
