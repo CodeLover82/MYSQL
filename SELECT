@@ -73,13 +73,45 @@ NULL 값은 오름차순일 때는 제일 먼저, 내림차순일 때는 제일 
 ※ 2개 이상의 기준으로 정렬
 EX) ORDER BY A ASC, B DESC; // A 기준으로 오름차순으로 정렬 후, A가 같은 경우 B의 내림차순으로 정렬.
 
+< 집계 함수를 이용한 검색 >
+NULL인 속성은 제외하고 계산. 
+WHERE 절에서는 사용 불가. SELECT 절이나, GROUP BY 사용시 HAVING 절에서만 사용 가능.
+
+COUNT : 개수 
+( 총 개수를 셀 때는 COUNT(*)를 써야 함. COUNT(일반 속성명)으로 사용할 경우 NULL은 포함되지 않기 때문이다. )
+( 특정 속성값의 중복을 없앨 때는 SELECT COUNT(DISTINCT 제조업체) 로 사용. )
+
+MAX : 최댓값
+MIN : 최솟값
+SUM : 합계(숫자만 가능)
+AVG : 평균(숫자만 가능)
+
+EX) SELECT AVG(단가) FROM 제품;
 
 
 
 
 
----------------------------
-종이, 책, 문제, 구름 IDE에서 나온거 정리 후 확장자 .SQL로 바꾸기
+< 그룹별 검색 >
+SELECT [ALL | DISTINCT] 속성1, 속성2,.. 
+FROM 테이블 
+[WHERE 조건]
+[GROUP BY 속성1, 속성2 [HAVING 조건]]
+[ORDER BY 속성1, 속성2 [ASC | DESC]]
+
+GROUP BY 속성에 여러개가 나오면, 그 여러개를 하나의 키로 간주.
+GROUP BY를 사용할 때는 SELECT 절에 집계함수, GROUP BY 절에 있는 속성 외에는 사용할 수 없다.
+
+[ 처리 순서 ]
+FROM -> WHERE -> GROUP BY -> ORDER BY -> SELECT
+
+EX) SELECT COUNT(*), MAX(단가) FROM 제품 GROUP BY 제조업체 HAVING COUNT(*) >= 3;
+
+< 여러 테이블에 대한 조인 검색 >
+
+
+
+
 
 
 < LIMIT 검색 >
