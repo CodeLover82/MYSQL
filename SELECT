@@ -61,7 +61,7 @@ EX) WHERE 장소 LIKE '%상암%';
 
 
 < 정렬 검색 >
-SELECT [ALL | DISTINCT ] 속성1, 속성2,.. 
+SELECT [ALL | DISTCT ] 속성1, 속성2,.. 
 FROM 테이블 
 [WHERE 조건]
 [ORDER BY 속성1 [ASC | DESC], 속성2 [ASC | DESC]];
@@ -74,7 +74,6 @@ NULL 값은 오름차순일 때는 제일 먼저, 내림차순일 때는 제일 
 
 ※ 2개 이상의 기준으로 정렬
 EX) ORDER BY A ASC, B DESC; // A 기준으로 오름차순으로 정렬 후, A가 같은 경우 B의 내림차순으로 정렬.
-
 
 
 
@@ -153,6 +152,8 @@ WHERE 제품번호 NOT IN (
                 SELECT 주문제품 
                 FROM 주문 
                 WHERE 주문고객 = 'BANANA');
+                IN 추가 예시
+                WHERE NAME IN('Lucy', 'Ella', 'Pickle', 'Rogan', 'Sabrina', 'Mitty');
 
 EX)
 SELECT 제품명, 제조업체
