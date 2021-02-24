@@ -1,3 +1,10 @@
+대소문자 처리
+기본적으로 mysql에서는 대소문자 구분을 하지 않는다.
+구분을 하려면 binary 키워드를 사용해야 한다.
+WHERE 절에 BINARY를 추가해주면 된다
+SELECT * FROM ip2nationCountries WHERE BINARY country LIKE '%Uni%';
+SELECT * FROM ip2nationCountries WHERE BINARY country LIKE '%uni%';
+
 < 기본 검색 >
 SELECT [ALL | DISTINCT] 속성1 [AS X], 속성2 [AS Y],.. 
 FROM 테이블1;
