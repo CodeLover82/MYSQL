@@ -175,5 +175,22 @@ LIMIT 개수;
 EX) LIMIT 2 : 위에서부터 2개만 출력.
 EX) LIMIT 2, 5 : 3번째 줄부터 5개(3 ~ 7) 
 
-                   
-                   
+
+
+
+
+< DATETIME에서 일부를 추출 >
+YEAR : 연도 
+MONTH : 월
+DAY : 일 
+HOUR : 시
+MINUTE : 분 
+SECOND : 초 
+
+EX)
+SELECT HOUR(DATETIME), COUNT(*)
+FROM ANIMAL_OUTS
+WHERE 9 <= HOUR(DATETIME) AND HOUR(DATETIME) < 20
+GROUP BY HOUR(DATETIME)
+ORDER BY HOUR(DATETIME);
+
