@@ -24,15 +24,6 @@ FROM 테이블
 
 
 
-4. NULL
-속성 값이 NULL인지 판단.
-이름 = NULL 형태로 표현하면 안된다.
-
-이름 IS NULL : NULL인지.
-이름 IS NOT NULL : NULL이 아닌지.
-
-
-
 
 
 < 정렬 검색 >
