@@ -4,10 +4,12 @@
 
 FROM 절에 검색에 필요한 모든 테이블을 나열하고, WHERE 절에 조인 속성의 값이 같아야 함을 제시한다.
 
+< INNER JOIN >
+일반적으로 조인은 INNER JOIN을 말한다. 교집합 만을 추출.
 EX) 
 SELECT 제품, 제품명 
-FROM 제품, 주문 
-WHERE 주문.주문고객 = 'BANANA' AND 제품.제품번호 = 주문.주문제품;
+FROM 제품 INNER JOIN 주문 ON 제품.제품번호 = 주문.주문제품
+WHERE 주문.주문고객 = 'BANANA';
 
 
 < LEFT JOIN >
