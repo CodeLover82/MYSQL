@@ -28,12 +28,6 @@ FROM 제품;
 
 
 
-< NULL 값일 때 대체값 넣기 >
-EX)
-SELECT ANIMAL_TYPE, IFNULL(NAME, 'No name'), SEX_UPON_INTAKE 
-FROM ANIMAL_INS
-ORDER BY ANIMAL_ID ASC;
-
 
 
 < 로컬 변수의 사용 >
