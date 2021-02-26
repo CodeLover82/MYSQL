@@ -1,0 +1,10 @@
+< 로컬 변수의 사용 >
+:=  : 대입연산자
+변수명은 @로 시작한다.
+
+EX)
+SET @HOUR := -1;
+
+SELECT (@HOUR := @HOUR + 1) AS 'HOUR', (SELECT COUNT(*) FROM ANIMAL_OUTS WHERE @HOUR = HOUR(DATETIME)) AS 'COUNT'
+FROM ANIMAL_OUTS
+WHERE @HOUR < 23;
